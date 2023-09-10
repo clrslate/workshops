@@ -1,0 +1,14 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio-operator
+spec:
+  profile: demo
+  meshConfig:
+    enableTracing: true
+    outboundTrafficPolicy:
+      mode: ALLOW_ANY
+    defaultConfig:
+      tracing:
+        sampling: 100.0

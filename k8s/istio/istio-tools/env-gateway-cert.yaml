@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: env-gateway-cert
+  namespace: istio-system
+spec:
+  secretName: env-gateway-tls
+  commonName: '*.clrslate.local'
+  isCA: false
+  issuerRef:
+    name: my-ca-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - '*.clrslate.local'
+  usages:
+    - server auth
+    - client auth
